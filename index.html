@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrabPerks | Early Black Friday iPad Reward Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #0071dc;
+      --dark-blue: #004f9a;
+      --accent-yellow: #ffc220;
+      --accent-yellow-hover: #f5b400;
+      --bg-light: #f4f7fa;
+      --card-bg: #ffffff;
+      --text-main: #1d252c;
+      --text-muted: #596573;
+      --border-color: #e2e8f0;
+      --success-green: #16a34a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Disclosure Banner */
+    .top-disclosure {
+      background-color: var(--dark-blue);
+      color: #e2e8f0;
+      font-size: 11px;
+      text-align: center;
+      padding: 6px 12px;
+      letter-spacing: 0.2px;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary-blue);
+      color: #ffffff;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0, 79, 154, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-spark {
+      color: var(--accent-yellow);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .event-pill {
+      background-color: var(--accent-yellow);
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 16px 14px 80px;
+    }
+
+    /* Timer Bar */
+    .timer-bar {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #92400e;
+    }
+
+    .timer-clock {
+      background: #fef3c7;
+      color: #b45309;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Hero Card */
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 22px 18px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .badge-blue {
+      background: #e0f2fe;
+      color: var(--primary-blue);
+    }
+
+    .badge-green {
+      background: #dcfce7;
+      color: var(--success-green);
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      letter-spacing: -0.4px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    /* Reward Highlight Box */
+    .reward-box {
+      background: linear-gradient(135deg, #0071dc 0%, #004f9a 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reward-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-yellow);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .reward-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .reward-sub {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    /* Primary CTA Button */
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background-color: var(--accent-yellow);
+      color: var(--text-main);
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(255, 194, 32, 0.45);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover, .cta-btn:active {
+      background-color: var(--accent-yellow-hover);
+      transform: translateY(-1px);
+    }
+
+    .cta-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    /* Steps Section */
+    .section-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px 18px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .step-num {
+      background-color: var(--primary-blue);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 13px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .step-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* FAQ Accordion */
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 10px;
+    }
+
+    .faq-icon {
+      font-size: 18px;
+      color: var(--primary-blue);
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-answer {
+      display: none;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Live Activity Toast */
+    .toast-popup {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      background: #ffffff;
+      border-left: 4px solid var(--primary-blue);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: calc(100% - 28px);
+      max-width: 420px;
+      z-index: 100;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast-popup.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--success-green);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .toast-text {
+      font-size: 12px;
+      color: var(--text-main);
+    }
+
+    .toast-time {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* Footer Disclosure */
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      padding: 10px 6px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-disclosure">
+    Independent Rewards &amp; Affiliate Portal &bull; Not affiliated with or endorsed by Walmart Inc. or Apple Inc.
+  </div>
+
+  <header>
+    <div class="brand-logo">
+      <span class="brand-spark">&#10038;</span>
+      <span>GrabPerks</span>
+    </div>
+    <span class="event-pill">Early Black Friday</span>
+  </header>
+
+  <main class="container">
+    <!-- Session Timer -->
+    <div class="timer-bar">
+      <span>Session Spot Reserved:</span>
+      <span class="timer-clock" id="countdown">05:00</span>
+    </div>
+
+    <!-- Main Offer Card -->
+    <section class="hero-card">
+      <div class="badge-row">
+        <span class="badge badge-blue">Holiday Tech Event</span>
+        <span class="badge badge-green">US Residents 18+</span>
+      </div>
+
+      <h1>Early Black Friday iPad Shopping Reward</h1>
+      <p class="subtitle">
+        Qualify for a retail shopping gift card reward toward your holiday tech purchase by completing sponsored partner deals.
+      </p>
+
+      <div class="reward-box">
+        <div class="reward-label">Featured Holiday Reward</div>
+        <div class="reward-title">Up to $500 Retail Gift Card</div>
+        <div class="reward-sub">Usable toward iPads, electronics &amp; holiday gifts</div>
+      </div>
+
+      <a href="https://giftclick.org/?offer_id=1405&aff_id=12436" class="cta-btn" rel="nofollow noopener">
+        Continue to Reward Offers &rarr;
+      </a>
+      <p class="cta-note">
+        Requires valid email &amp; completion of required partner deals to qualify.
+      </p>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section-card">
+      <h2 class="section-title">How to Qualify</h2>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Enter Your Email Address</h3>
+            <p>Tap the button above to register your reward progress on the official partner portal.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Complete Required Sponsor Deals</h3>
+            <p>Select and complete the required number of optional partner trials, apps, or surveys.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Verify &amp; Receive Your Reward</h3>
+            <p>Once your deal completions are verified, your gift card code is delivered via email (check spam/promotions if needed).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive FAQ -->
+    <section class="section-card">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>How does this reward program work?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Advertisers pay to introduce their apps, subscriptions, and services to new users. When you complete the required number of partner deals on the next page, the sponsor funds your gift card reward.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>How long does it take to get the reward code?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Most participants complete their required deals within 15–20 minutes. Once verified, reward instructions are sent directly to your registered email address.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Is GrabPerks affiliated with Walmart or Apple?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          No. GrabPerks is an independent promotional affiliate website. All trademarks, product names, and retail brands belong to their respective owners.
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <a href="https://giftclick.org/?offer_id=1405&aff_id=12436" class="cta-btn" style="text-align:center; margin-bottom: 18px;" rel="nofollow noopener">
+      Start Qualification Steps &rarr;
+    </a>
+
+    <footer>
+      <p>
+        <strong>Affiliate &amp; Trademark Disclosure:</strong> GrabPerks (grabperks.shop) is an independent affiliate marketing website and may receive compensation when you interact with partner offers. Walmart and iPad are registered trademarks of their respective owners, who neither sponsor nor endorse this promotion. Participation requires meeting sponsor terms and age/residency eligibility.
+      </p>
+    </footer>
+  </main>
+
+  <!-- Live Activity Notification -->
+  <div class="toast-popup" id="toast">
+    <span class="toast-dot"></span>
+    <div class="toast-text">
+      <strong id="toast-user">Jessica M. (Texas)</strong> <span id="toast-action">completed step 2 of the holiday reward</span>
+      <span class="toast-time" id="toast-time">Just now</span>
+    </div>
+  </div>
+
+  <script>
+    // 5-Minute Countdown Timer
+    let totalSeconds = 5 * 60;
+    const countdownEl = document.getElementById('countdown');
+
+    setInterval(() => {
+      if (totalSeconds <= 0) return;
+      totalSeconds--;
+      const mins = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+      const secs = String(totalSeconds % 60).padStart(2, '0');
+      countdownEl.textContent = `${mins}:${secs}`;
+    }, 1000);
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // Rotating Activity Notifications
+    const activities = [
+      { user: "Jessica M. (Texas)", action: "unlocked Early Black Friday reward eligibility", time: "Just now" },
+      { user: "Brianna K. (Ohio)", action: "completed required sponsor deals for a $500 reward", time: "14 seconds ago" },
+      { user: "Taylor R. (Florida)", action: "claimed a retail gift card code via email", time: "28 seconds ago" },
+      { user: "Hannah S. (California)", action: "started the holiday tech reward steps", time: "41 seconds ago" },
+      { user: "Megan L. (North Carolina)", action: "verified partner deal completion", time: "55 seconds ago" }
+    ];
+
+    let toastIndex = 0;
+    const toastEl = document.getElementById('toast');
+    const toastUser = document.getElementById('toast-user');
+    const toastAction = document.getElementById('toast-action');
+    const toastTime = document.getElementById('toast-time');
+
+    function showNextToast() {
+      const current = activities[toastIndex];
+      toastUser.textContent = current.user;
+      toastAction.textContent = current.action;
+      toastTime.textContent = current.time;
+
+      toastEl.classList.add('show');
+      setTimeout(() => {
+        toastEl.classList.remove('show');
+      }, 3200);
+
+      toastIndex = (toastIndex + 1) % activities.length;
+    }
+
+    setTimeout(() => {
+      showNextToast();
+      setInterval(showNextToast, 5500);
+    }, 2500);
+  </script>
+</body>
+</html>
